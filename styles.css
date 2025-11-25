@@ -1,0 +1,52 @@
+/* styles.css */
+:root {
+  --bg: #0f172a;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #22c55e;
+  --accent-2: #3b82f6;
+  --danger: #ef4444;
+  --panel: #111827;
+  --border: #1f2937;
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+header { padding: 20px 24px; border-bottom: 1px solid var(--border); }
+header h1 { margin: 0 0 6px; font-size: 24px; }
+header p { margin: 0; color: var(--muted); }
+
+.inputs { display: flex; gap: 16px; padding: 16px 24px; align-items: center; flex-wrap: wrap; }
+.file-block { background: var(--panel); padding: 12px; border-radius: 8px; border: 1px solid var(--border); }
+.file-block label { display: block; margin-bottom: 8px; color: var(--muted); }
+.actions { display: flex; gap: 8px; }
+button {
+  background: var(--accent-2); color: white; border: none; padding: 10px 14px;
+  border-radius: 8px; cursor: pointer; font-weight: 600;
+}
+button.secondary { background: #374151; }
+button:hover { filter: brightness(1.1); }
+
+.viewer { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; padding: 16px 24px; }
+.pane { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
+.pane h2 { margin: 0 0 8px; font-size: 18px; color: var(--muted); }
+.plot { width: 100%; height: 420px; }
+
+.results { display: grid; grid-template-columns: 320px 1fr; gap: 16px; padding: 0 24px 24px; }
+.metrics, .details { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
+.metrics h3, .details h3 { margin: 0 0 8px; color: var(--muted); }
+.score-line { display: flex; gap: 8px; margin: 6px 0; }
+.score-line .label { color: var(--muted); min-width: 80px; display: inline-block; }
+
+.diff-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.diff-grid h4 { margin: 0 0 6px; font-size: 16px; color: var(--muted); }
+ul { margin: 0; padding-left: 18px; max-height: 180px; overflow: auto; }
+li { margin: 4px 0; color: var(--text); }
+li.added { color: var(--accent); }
+li.removed { color: var(--danger); }
+li.changed { color: #f59e0b; }
+
+footer { padding: 12px 24px; border-top: 1px solid var(--border); color: var(--muted); }

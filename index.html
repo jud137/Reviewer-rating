@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Drafting Reviewer — 2D JSON Comparator</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Plotly for easy 2D plotting (pan/zoom) -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Drafting Reviewer</h1>
+    <p>Compare before/after 2D JSON layouts and auto-rate corrections.</p>
+  </header>
+
+  <section class="inputs">
+    <div class="file-block">
+      <label for="beforeFile"><strong>Before layout JSON:</strong></label>
+      <input type="file" id="beforeFile" accept=".json" />
+    </div>
+    <div class="file-block">
+      <label for="afterFile"><strong>After layout JSON:</strong></label>
+      <input type="file" id="afterFile" accept=".json" />
+    </div>
+    <div class="actions">
+      <button id="renderBtn">Render & Compare</button>
+      <button id="resetBtn" class="secondary">Reset</button>
+    </div>
+  </section>
+
+  <section class="viewer">
+    <div class="pane">
+      <h2>Before</h2>
+      <div id="plotBefore" class="plot"></div>
+    </div>
+    <div class="pane">
+      <h2>After</h2>
+      <div id="plotAfter" class="plot"></div>
+    </div>
+    <div class="pane">
+      <h2>Diff overlay</h2>
+      <div id="plotDiff" class="plot"></div>
+    </div>
+  </section>
+
+  <section class="results">
+    <div class="metrics">
+      <h3>Auto-correction rating</h3>
+      <div class="score-line">
+        <span class="label">Score:</span>
+        <span id="scoreValue">—</span>
+      </div>
+      <div class="score-line">
+        <span class="label">Summary:</span>
+        <span id="scoreSummary">—</span>
+      </div>
+    </div>
+    <div class="details">
+      <h3>Differences</h3>
+      <div class="diff-grid">
+        <div>
+          <h4>Walls</h4>
+          <ul id="diffWalls"></ul>
+        </div>
+        <div>
+          <h4>Corners</h4>
+          <ul id="diffCorners"></ul>
+        </div>
+        <div>
+          <h4>Doors</h4>
+          <ul id="diffDoors"></ul>
+        </div>
+        <div>
+          <h4>Windows</h4>
+          <ul id="diffWindows"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <small>Supervisor Team • Auto rating Tool</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
